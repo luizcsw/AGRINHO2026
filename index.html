@@ -1,58 +1,238 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agrinho: Menos Carbono, Mais Futuro!</title>
-
-</head>
-<body>
-
-    <header>
-        <h1>Agrinho 2026: Menos Carbono 🌿</h1>
-        <p>O campo salvando o planeta (e a nossa nota em Biologia!)</p>
-    </header>
-
-    <nav>
-        <a href="#ideia">A Ideia</a>
-        <a href="#problema">O B.O. do Carbono</a>
-        <a href="#solucoes">Soluções Tech</a>
-        <a href="#sobre">Quem Somos</a>
-    </nav>
-
-    <div class="container">
-
-        <section id="ideia" class="card">
-            <h2>Qual é a da parada? 🤔</h2>
-            <p>Se você acha que o agro só serve pra produzir comida, tá por fora! O projeto do Agrinho desse ano veio provar que dá pra produzir muito <strong>reduzindo a pegada de carbono</strong>. A nossa missão aqui no 1º ano é te mostrar como a tecnologia e a natureza trabalham juntas pra parar o aquecimento global.</p>
+import { createFileRoute } from "@tanstack/react-router";
+import heroForest from "@/assets/hero-forest.jpg";
+import windTurbines from "@/assets/wind-turbines.jpg";
+import bicycleCity from "@/assets/bicycle-city.jpg";
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Your App" },
+      { name: "description", content: "Replace this with a one-sentence description of your app." },
+      { property: "og:title", content: "Your App" },
+      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "O Diário Verde — Menos Carbono, Mais Futuro" },
+      { name: "description", content: "Jornal sobre redução de carbono, sustentabilidade e ações para um planeta mais limpo." },
+      { property: "og:title", content: "O Diário Verde — Menos Carbono, Mais Futuro" },
+      { property: "og:description", content: "Jornal sobre redução de carbono, sustentabilidade e ações para um planeta mais limpo." },
+    ],
+  }),
+  component: Index,
+});
+// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
+function Index() {
+  const today = new Date().toLocaleDateString("pt-BR", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+  return (
+    <div
+      className="flex min-h-screen items-center justify-center"
+      style={{ backgroundColor: "#fcfbf8" }}
+    >
+      <img
+        data-lovable-blank-page-placeholder="REMOVE_THIS"
+        src="https://cdn.gpteng.co/blank-app-v1.svg"
+        alt="Your app will live here!"
+      />
+    <div className="min-h-screen bg-background text-foreground font-serif">
+      {/* Masthead */}
+      <header className="border-b-4 border-double border-foreground">
+        <div className="mx-auto max-w-6xl px-6 py-6">
+          <div className="flex items-center justify-between text-xs uppercase tracking-widest">
+            <span>Edição Especial</span>
+            <span>Vol. I · Nº 01</span>
+            <span className="hidden sm:inline">{today}</span>
+          </div>
+          <h1 className="mt-4 text-center font-display text-6xl md:text-8xl font-black tracking-tight">
+            O Diário Verde
+          </h1>
+          <p className="mt-2 text-center italic text-sm md:text-base">
+            "Menos carbono hoje, mais vida amanhã."
+          </p>
+          <nav className="mt-4 flex flex-wrap justify-center gap-6 border-t border-foreground/40 pt-3 text-xs uppercase tracking-wider">
+            <a href="#manchete">Manchete</a>
+            <a href="#energia">Energia</a>
+            <a href="#cidades">Cidades</a>
+            <a href="#acoes">Ações</a>
+            <a href="#numeros">Em Números</a>
+          </nav>
+        </div>
+      </header>
+      <main className="mx-auto max-w-6xl px-6 py-10">
+        {/* Hero / Lead story */}
+        <section id="manchete" className="grid gap-8 md:grid-cols-3">
+          <div className="md:col-span-2">
+            <p className="text-xs uppercase tracking-widest text-muted-foreground">Capa</p>
+            <h2 className="mt-2 font-display text-4xl md:text-6xl font-bold leading-tight">
+              O Planeta Pede Trégua: A Corrida Para Reduzir o Carbono
+            </h2>
+            <p className="mt-3 italic text-muted-foreground">
+              Cientistas, cidades e cidadãos comuns se unem em um esforço sem precedentes
+              para conter as emissões de gases de efeito estufa.
+            </p>
+            <figure className="mt-6">
+              <img
+                src={heroForest}
+                alt="Floresta densa com chaminés industriais ao fundo"
+                width={1024}
+                height={1024}
+                className="w-full border border-foreground/20 grayscale"
+              />
+              <figcaption className="mt-2 text-xs text-muted-foreground italic">
+                Onde a floresta avança, o carbono recua. Foto: Arquivo Diário Verde.
+              </figcaption>
+            </figure>
+            <div className="mt-6 columns-1 md:columns-2 gap-8 text-justify leading-relaxed [&>p]:mb-4">
+              <p>
+                <span className="float-left mr-2 font-display text-6xl leading-none">A</span>
+                cada tonelada de dióxido de carbono lançada à atmosfera, o termômetro do
+                planeta sobe mais um pouco. A boa notícia é que, pela primeira vez em
+                décadas, há sinais claros de que a humanidade começa a inverter essa rota.
+                Energias renováveis batem recordes, automóveis elétricos ganham as ruas
+                e milhares de cidades reescrevem seus planos urbanos.
+              </p>
+              <p>
+                Reduzir o carbono não é mais uma promessa distante: é uma agenda diária,
+                que começa no transporte, passa pelo prato e termina na maneira como
+                produzimos energia. A transição é desigual, mas avança.
+              </p>
+              <p>
+                "Não precisamos esperar uma tecnologia milagrosa. As soluções já existem;
+                o que falta é coragem coletiva", afirma um relatório recente de pesquisadores
+                do clima.
+              </p>
+            </div>
+          </div>
+          {/* Sidebar column */}
+          <aside className="border-l border-foreground/30 md:pl-6">
+            <p className="text-xs uppercase tracking-widest text-muted-foreground">Última Hora</p>
+            <h3 className="mt-2 font-display text-2xl font-bold">
+              5 Hábitos Que Cortam Seu Carbono Pela Metade
+            </h3>
+            <ol className="mt-4 space-y-3 text-sm leading-relaxed">
+              <li><strong>1.</strong> Troque um trajeto de carro por bicicleta na semana.</li>
+              <li><strong>2.</strong> Reduza o consumo de carne vermelha em 50%.</li>
+              <li><strong>3.</strong> Prefira energia elétrica de fonte renovável.</li>
+              <li><strong>4.</strong> Evite voos curtos quando houver alternativa terrestre.</li>
+              <li><strong>5.</strong> Recuse o descartável: leve sua garrafa e sua sacola.</li>
+            </ol>
+            <div className="mt-6 border-t border-foreground/30 pt-4">
+              <p className="text-xs uppercase tracking-widest text-muted-foreground">Citação do dia</p>
+              <blockquote className="mt-2 font-display text-xl italic">
+                "A Terra não pertence a nós; nós é que pertencemos à Terra."
+              </blockquote>
+              <p className="mt-2 text-xs">— Chefe Seattle</p>
+            </div>
+          </aside>
         </section>
-
-        <section id="problema" class="card">
-            <h2>O B.O. do Efeito Estufa</h2>
-            <p>Todo mundo sabe que o planeta tá virando um forno. O dióxido de carbono ($CO_2$) é um dos maiores vilões. Mas ó, o agro não precisa ser o culpado. Com as práticas certas, a terra pode virar uma "esponja" que chupa esse carbono do ar!</p>
-            <p class="Destaque">"Se o solo tá saudável, o carbono fica preso nele e não vai pra atmosfera virar calor." — Professor de Biologia (provavelmente).</p>
+        <hr className="my-12 border-foreground/40" />
+        {/* Energy section */}
+        <section id="energia" className="grid gap-8 md:grid-cols-2">
+          <figure>
+            <img
+              src={windTurbines}
+              alt="Turbinas eólicas em uma colina ao amanhecer"
+              width={1024}
+              height={1024}
+              loading="lazy"
+              className="w-full border border-foreground/20 grayscale"
+            />
+            <figcaption className="mt-2 text-xs italic text-muted-foreground">
+              Vento, sol e água: o tripé da nova matriz energética.
+            </figcaption>
+          </figure>
+          <div>
+            <p className="text-xs uppercase tracking-widest text-muted-foreground">Energia</p>
+            <h2 className="mt-2 font-display text-3xl md:text-4xl font-bold">
+              Renováveis Ultrapassam o Carvão em Geração Global
+            </h2>
+            <p className="mt-4 leading-relaxed text-justify">
+              Pela primeira vez na história moderna, as fontes renováveis — solar, eólica
+              e hídrica — geraram mais eletricidade do que o carvão. O marco simboliza
+              uma virada estrutural: investir em energia limpa deixou de ser uma escolha
+              ética para tornar-se a opção economicamente mais inteligente.
+            </p>
+            <p className="mt-4 leading-relaxed text-justify">
+              Painéis solares em telhados de escolas, parques eólicos no sertão e pequenas
+              hidrelétricas comunitárias mostram que a descarbonização também é
+              descentralização. O poder, literalmente, volta às mãos das pessoas.
+            </p>
+          </div>
         </section>
-
-        <section id="solucoes" class="card">
-            <h2>Como o Agro Resolve Isso? 🚜</h2>
-            <p>Se liga nessas 3 ideias que mudam o jogo:</p>
-            <ul>
-                <li><strong>Plantio Direto:</strong> Não mexer na terra evita que o carbono escape para o ar. Prático e rápido.</li>
-                <li><strong>Integração Lavoura-Pecuária-Floresta (ILPF):</strong> Junta árvore, boi e plantação no mesmo lugar. A árvore faz sombra, o boi fica de boa e o carbono some.</li>
-                <li><strong>Drones e IA:</strong> Usar tecnologia para aplicar adubo só onde precisa, evitando desperdício e poluição.</li>
-            </ul>
+        <hr className="my-12 border-foreground/40" />
+        {/* Cities section */}
+        <section id="cidades" className="grid gap-8 md:grid-cols-2">
+          <div className="md:order-2">
+            <img
+              src={bicycleCity}
+              alt="Ciclista em rua arborizada da cidade"
+              width={1024}
+              height={1024}
+              loading="lazy"
+              className="w-full border border-foreground/20 grayscale"
+            />
+            <p className="mt-2 text-xs italic text-muted-foreground">
+              Onde antes só passavam carros, hoje passam vidas.
+            </p>
+          </div>
+          <div className="md:order-1">
+            <p className="text-xs uppercase tracking-widest text-muted-foreground">Cidades</p>
+            <h2 className="mt-2 font-display text-3xl md:text-4xl font-bold">
+              Ruas Para Pessoas: A Revolução Silenciosa das Cidades
+            </h2>
+            <p className="mt-4 leading-relaxed text-justify">
+              De Paris a Bogotá, passando por São Paulo, as metrópoles redesenham seus
+              centros para priorizar bicicletas, pedestres e transporte coletivo elétrico.
+              O resultado é imediato: menos ruído, menos poluição, mais convivência.
+            </p>
+            <p className="mt-4 leading-relaxed text-justify">
+              Cada quilômetro pedalado evita, em média, 250 gramas de CO₂. Multiplicado
+              por milhões de cidadãos, isso representa florestas inteiras poupadas a cada
+              ano.
+            </p>
+          </div>
         </section>
-
-        <section id="sobre" class="card">
-            <h2>Sobre a nossa equipe 💻</h2>
-            <p>Somos alunos do 1º ano do Ensino Médio, tentando passar de ano e, de quebra, dar uma força pro planeta. Criamos esse site pro concurso do Agrinho pra mostrar que a nossa geração tá ligada no futuro do campo!</p>
+        <hr className="my-12 border-foreground/40" />
+        {/* Numbers */}
+        <section id="numeros">
+          <p className="text-xs uppercase tracking-widest text-muted-foreground text-center">
+            Em Números
+          </p>
+          <h2 className="mt-2 text-center font-display text-3xl md:text-4xl font-bold">
+            O Clima em Manchetes
+          </h2>
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            {[
+              { n: "37 Gt", l: "de CO₂ emitidas globalmente em um ano" },
+              { n: "1,5 °C", l: "limite climático que precisamos defender" },
+              { n: "30%", l: "da energia mundial já vem de fontes renováveis" },
+            ].map((s) => (
+              <div key={s.n} className="border border-foreground/40 p-6 text-center">
+                <p className="font-display text-5xl font-black">{s.n}</p>
+                <p className="mt-2 text-sm italic">{s.l}</p>
+              </div>
+            ))}
+          </div>
         </section>
-
+        <hr className="my-12 border-foreground/40" />
+        {/* Call to action */}
+        <section id="acoes" className="border-y-4 border-double border-foreground py-8 text-center">
+          <p className="text-xs uppercase tracking-widest text-muted-foreground">Editorial</p>
+          <h2 className="mt-2 font-display text-3xl md:text-5xl font-bold">
+            Cada Atitude Conta. A Próxima é Sua.
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl italic">
+            Plante uma árvore, use o transporte público, exija políticas climáticas.
+            Pequenas escolhas, repetidas por bilhões de pessoas, mudam o destino do planeta.
+          </p>
+        </section>
+      </main>
+      <footer className="border-t-4 border-double border-foreground mt-12">
+        <div className="mx-auto max-w-6xl px-6 py-6 text-center text-xs uppercase tracking-widest text-muted-foreground">
+          © {new Date().getFullYear()} O Diário Verde · Impresso em pixels reciclados
+        </div>
+      </footer>
     </div>
-
-    <footer>
-        <p>&copy; 2026 - Projeto Agrinho do 1º Ano. Feito com HTML, CSS e um pouco de desespero.</p>
-    </footer>
-
-</body>
-</html>
+  );
+}
