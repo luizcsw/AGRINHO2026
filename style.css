@@ -1,3 +1,6 @@
+Aqui está o seu arquivo style.css limpo, sem nenhum daqueles comentários explicativos, pronto para você apenas copiar e colar no seu projeto:
+
+CSS
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap");
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -80,4 +83,62 @@ footer { border-top: 6px double var(--line); margin-top: 3rem; padding: 1.5rem 0
   .numbers .grid { grid-template-columns: 1fr; }
   .two-col.reverse .text, .two-col.reverse .media { order: initial; }
   .masthead .top span:nth-child(3) { display: none; }
+}
+
+.accessibility-bar {
+  background-color: var(--fg);
+  padding: 0.5rem 0;
+}
+
+.accessibility-flex {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.accessibility-bar button {
+  background: var(--bg);
+  color: var(--fg);
+  border: 1px solid var(--muted);
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 0.25rem 0.6rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.accessibility-bar button:hover,
+.accessibility-bar button:focus {
+  background: var(--accent);
+  color: #ffffff;
+  outline: 2px solid var(--bg);
+}
+
+html.high-contrast {
+  --bg: #000000 !important;
+  --fg: #ffffff !important;
+  --muted: #e0e0e0 !important;
+  --line: #ffffff !important;
+  --accent: #ffff00 !important;
+}
+
+html.high-contrast body {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+html.high-contrast a {
+  text-decoration: underline !important;
+}
+
+html.high-contrast .accessibility-bar button {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+}
+
+html.high-contrast figure img {
+  filter: grayscale(100%) contrast(150%) !important;
 }
